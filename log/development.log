@@ -1514,3 +1514,457 @@ puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.5) lib/puma/server.rb:472:in `process_client'
 puma (4.3.5) lib/puma/server.rb:328:in `block in run'
 puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:42:58 +0000
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "savvy-api-rails_development" does not exist
+):
+  
+activerecord (6.0.3.2) lib/active_record/connection_adapters/postgresql_adapter.rb:50:in `rescue in postgresql_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/postgresql_adapter.rb:33:in `postgresql_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.2) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.2) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.2) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (107.9ms)[0m  [1m[35mCREATE DATABASE "savvy-api-rails_development" ENCODING = 'utf8'[0m
+  [1m[35m (92.6ms)[0m  [1m[35mCREATE DATABASE "savvy-api-rails_test" ENCODING = 'utf8'[0m
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:44:01 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/users" for 172.23.0.1 at 2020-08-13 10:44:42 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1" for 172.23.0.1 at 2020-08-13 10:45:51 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/users" for 172.23.0.1 at 2020-08-13 10:46:56 +0000
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/lib/grape_logging_client_env.rb:6:in `parameters'
+Started GET "/api/v1/users" for 172.23.0.1 at 2020-08-13 10:47:17 +0000
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/lib/grape_logging_client_env.rb:6:in `parameters'
+Started GET "/api/v1/users" for 172.23.0.1 at 2020-08-13 10:47:36 +0000
+  
+NameError (uninitialized constant ApiBase::API
+Did you mean?  App):
+  
+app/api/api_base.rb:31:in `block in <class:ApiBase>'
+Started GET "/api/v1/users" for 172.23.0.1 at 2020-08-13 10:47:49 +0000
+  
+NameError (uninitialized constant ApiBase::API
+Did you mean?  App):
+  
+app/api/api_base.rb:31:in `block in <class:ApiBase>'
+Started GET "/api/v1/users" for 172.23.0.1 at 2020-08-13 10:48:57 +0000
+Grape::Exceptions::ValidationErrors
+  
+NameError (uninitialized constant ApiBase::CODE_VALIDATE_FAILED):
+  
+app/api/api_base.rb:45:in `block in <class:ApiBase>'
+Started GET "/api/v1/users" for 172.23.0.1 at 2020-08-13 10:49:43 +0000
+Grape::Exceptions::ValidationErrors
+  
+NameError (uninitialized constant JsonFormatter::Error::API
+Did you mean?  App):
+  
+app/api/json_formatter.rb:46:in `call'
+app/api/api_base.rb:49:in `block in <class:ApiBase>'
+Started GET "/api/v1/users" for 172.23.0.1 at 2020-08-13 10:49:56 +0000
+Grape::Exceptions::ValidationErrors
+  
+NameError (uninitialized constant JsonFormatter::Error::API
+Did you mean?  App):
+  
+app/api/json_formatter.rb:46:in `call'
+app/api/api_base.rb:49:in `block in <class:ApiBase>'
+Started GET "/api/v1/users" for 172.23.0.1 at 2020-08-13 10:50:31 +0000
+Grape::Exceptions::ValidationErrors
+{"response":{"code":"validate_failed","message":["username is missing"],"errors":[{"field":"username","message":"is missing"}]}}
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:53:14 +0000
+  
+NameError (uninitialized constant JsonFormatter::Success::CODE_SUCCESS
+Did you mean?  JsonFormatter::CODE_SUCCESS):
+  
+app/api/json_formatter.rb:6:in `call'
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:54:50 +0000
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:56:40 +0000
+  
+NameError (uninitialized constant ApplicationService::API):
+  
+app/services/application_service.rb:3:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:57:11 +0000
+  
+NameError (uninitialized constant API
+Did you mean?  App):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:57:32 +0000
+  
+NameError (uninitialized constant Api
+Did you mean?  App):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:57:51 +0000
+  
+NameError (uninitialized constant ApplicationService::Api):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:58:10 +0000
+  
+NameError (uninitialized constant API
+Did you mean?  App):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:58:31 +0000
+  
+NameError (uninitialized constant Api
+Did you mean?  App):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:58:44 +0000
+  
+NameError (uninitialized constant App::API):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.23.0.1 at 2020-08-13 10:58:51 +0000
+  
+NameError (uninitialized constant App::Api):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.28.0.1 at 2020-08-13 11:15:41 +0000
+  
+NameError (uninitialized constant API
+Did you mean?  App):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.28.0.1 at 2020-08-13 11:16:11 +0000
+  
+NameError (uninitialized constant API
+Did you mean?  App):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.30.0.1 at 2020-08-13 11:19:01 +0000
+  
+NameError (uninitialized constant API
+Did you mean?  App):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.30.0.1 at 2020-08-13 11:19:14 +0000
+  
+NameError (uninitialized constant ApplicationService::API):
+  
+app/services/application_service.rb:2:in `<class:ApplicationService>'
+app/services/application_service.rb:1:in `<main>'
+app/services/user_service/get_info.rb:1:in `<main>'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.30.0.1 at 2020-08-13 11:19:29 +0000
+  
+NoMethodError (undefined method `call' for UserService::GetInfo:Class):
+  
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.30.0.1 at 2020-08-13 11:20:08 +0000
+  
+NameError (undefined local variable or method `args' for #<UserService::GetInfo:0x00005562ee183e80>):
+  
+app/services/user_service/get_info.rb:4:in `call'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.30.0.1 at 2020-08-13 11:20:45 +0000
+  
+NoMethodError (undefined method `error!' for #<UserService::GetInfo:0x00005562edff0a78>
+Did you mean?  error):
+  
+app/services/application_service.rb:13:in `error_validate_failed!'
+app/services/user_service/get_info.rb:4:in `call'
+app/api/v1/users.rb:9:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.30.0.1 at 2020-08-13 11:20:57 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params dc"}}
+Started GET "/api/v1/users?username=1" for 172.30.0.1 at 2020-08-13 11:25:47 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params dc"}}
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363763324075825855)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200813113438)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200813113438"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnInUser (20200813113454)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying NOT NULL[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "token" character varying NOT NULL[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "token_type" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200813113454"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-08-13 11:36:08.756258"], ["updated_at", "2020-08-13 11:36:08.756258"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363763324075825855)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2020-08-13 11:36:47.845016"], ["updated_at", "2020-08-13 11:36:47.845016"], ["email", "omliler_man@hotmail.com"]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363763324075825855)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnInUser (20200813113454)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "email"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "token"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "token_type"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200813113454"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363763324075825855)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363763324075825855)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnInUser (20200813113454)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying NOT NULL[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "token" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "token_type" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200813113454"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363763324075825855)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2020-08-13 11:37:47.118321"], ["updated_at", "2020-08-13 11:37:47.118321"], ["email", "omliler_man@hotmail.com"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/users?username=1" for 172.30.0.1 at 2020-08-13 11:39:17 +0000
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NameError (undefined local variable or method `user_id' for #<User::GuardValidation:0x00005562eeaee1a0>
+Did you mean?  user):
+  
+app/services/user/guard_validation.rb:4:in `get_info'
+app/api/v1/users.rb:6:in `block (2 levels) in <class:Users>'
+Started GET "/api/v1/users?username=1" for 172.30.0.1 at 2020-08-13 11:39:38 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params user_id"}}
+Started GET "/api/v1/users?user_id=1" for 172.30.0.1 at 2020-08-13 11:39:46 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params user_id"}}
+Started GET "/api/v1/users?user_id=1" for 172.30.0.1 at 2020-08-13 11:40:21 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params user_id"}}
+Started GET "/api/v1/users?user_id=1" for 172.30.0.1 at 2020-08-13 11:41:16 +0000
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+{"response":{"code":"validate_failed","message":"ไม่มี User นี้จาก user_id: 1"}}
+Started GET "/api/v1/users" for 172.30.0.1 at 2020-08-13 11:41:28 +0000
+Grape::Exceptions::ValidationErrors
+{"response":{"code":"validate_failed","message":["user_id is missing"],"errors":[{"field":"user_id","message":"is missing"}]}}
+Started GET "/api/v1/users/2" for 172.30.0.1 at 2020-08-13 11:42:46 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params user_id"}}
+Started GET "/api/v1/users/2" for 172.30.0.1 at 2020-08-13 11:43:07 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params user_id"}}
+Started GET "/api/v1/users/2" for 172.30.0.1 at 2020-08-13 11:43:42 +0000
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/user/get_info.rb:4:in `call'
+  
+NameError (uninitialized constant V1::Entities::UserEntity):
+  
+app/api/v1/users.rb:20:in `block (3 levels) in <class:Users>'
+Started GET "/api/v1/users/2" for 172.30.0.1 at 2020-08-13 11:43:52 +0000
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/user/get_info.rb:4:in `call'
+  
+NameError (uninitialized constant V1::Entities::User
+Did you mean?  V1::Users
+               V1::Entities::Users):
+  
+app/api/v1/users.rb:20:in `block (3 levels) in <class:Users>'
+Started GET "/api/v1/users/2" for 172.30.0.1 at 2020-08-13 11:44:20 +0000
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/user/get_info.rb:4:in `call'
+  
+NameError (uninitialized constant V1::Entities::User
+Did you mean?  V1::Users
+               V1::Entities::Users):
+  
+app/api/v1/users.rb:20:in `block (3 levels) in <class:Users>'
+Started GET "/api/v1/users/2" for 172.30.0.1 at 2020-08-13 11:44:41 +0000
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/user/get_info.rb:4:in `call'
+Started GET "/api/v1/users/" for 172.30.0.1 at 2020-08-13 11:44:52 +0000
+Grape::Exceptions::ValidationErrors
+{"response":{"code":"validate_failed","message":["user_id is missing"],"errors":[{"field":"user_id","message":"is missing"}]}}
+Started GET "/api/v1/users/3" for 172.30.0.1 at 2020-08-13 11:45:07 +0000
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+{"response":{"code":"validate_failed","message":"ไม่มี User นี้จาก user_id: 3"}}
+Started GET "/api/v1/users?user_id=1" for 172.30.0.1 at 2020-08-13 11:46:50 +0000
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+{"response":{"code":"validate_failed","message":"ไม่มี User นี้จาก user_id: 1"}}
+Started GET "/api/v1/users?user_id=2" for 172.30.0.1 at 2020-08-13 11:46:53 +0000
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/services/user/get_info.rb:4:in `call'
+Started GET "/api/v1/users?user_id=3" for 172.30.0.1 at 2020-08-13 11:46:56 +0000
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+{"response":{"code":"validate_failed","message":"ไม่มี User นี้จาก user_id: 3"}}
+Started GET "/api/v1/users" for 172.30.0.1 at 2020-08-13 11:47:00 +0000
+Grape::Exceptions::ValidationErrors
+{"response":{"code":"validate_failed","message":["user_id is missing"],"errors":[{"field":"user_id","message":"is missing"}]}}
+Started GET "/api/v1/users/3" for 172.30.0.1 at 2020-08-13 11:54:53 +0000
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+{"response":{"code":"validate_failed","message":"ไม่มี User นี้จาก user_id: 3"}}
+Started GET "/api/v1/users/3" for 172.30.0.1 at 2020-08-13 11:55:23 +0000
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+{"response":{"code":"unauthorized","message":"ไม่มี User นี้จาก user_id: 3"}}
+Started GET "/api/v1/users/3" for 172.30.0.1 at 2020-08-13 11:56:39 +0000
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/user/guard_validation.rb:5:in `get_info'
+{"response":{"code":"validate_failed","message":"ไม่มี User นี้จาก user_id: 3"}}
