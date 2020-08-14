@@ -15,6 +15,9 @@ gem 'grape'
 gem 'grape-entity'
 gem 'grape_logging'
 
+# Auth facebook
+gem 'omniauth-facebook'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password

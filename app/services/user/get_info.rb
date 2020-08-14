@@ -1,5 +1,5 @@
 class User::GetInfo < ApplicationService
-  
+ 
   def call(user_id)
     # Guard
     User::GuardValidation.new.validate_get_info(user_id)
