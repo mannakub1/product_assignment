@@ -1,7 +1,7 @@
 class Auth::Google < ApplicationService
   require 'net/http'
 
-  def perform(auth_token)
+  def call(auth_token)
     # Guard
     GuardValidation.new.validate_facebook(user_id)
 

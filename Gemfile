@@ -15,8 +15,12 @@ gem 'grape'
 gem 'grape-entity'
 gem 'grape_logging'
 
-# Auth facebook
-gem 'omniauth-facebook'
+# Generation token
+gem 'jwt'
+
+# Until
+gem 'rails-settings-cached'
+gem "config"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
