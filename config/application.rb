@@ -27,6 +27,7 @@ module App
     config.autoload_paths += %W( app/services )
     # Load lib
     config.autoload_paths += Dir[Rails.root.join('lib')]
+    config.autoload_paths += Dir[Rails.root.join('app', '*')]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
