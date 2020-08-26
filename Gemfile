@@ -42,6 +42,17 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+group :test do
+  gem 'guard-rspec'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'minitest-focus'
+  gem 'simplecov', require: false
+  gem 'mocha'
+  gem 'webmock'
+  # gem 'database_cleaner'
+end
+
 group :development do
 end
 

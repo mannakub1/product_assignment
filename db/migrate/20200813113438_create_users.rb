@@ -5,12 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string  :token
       t.string  :token_type
       t.string  :account_id
-      t.json    :goal
-      t.json    :salary
-      t.json    :provident_fund
-      t.json    :social_security
-      t.json    :saving
-      t.json    :post_retirement
+      t.json    :retirement
       t.timestamps
     end
   end

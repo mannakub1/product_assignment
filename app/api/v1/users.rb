@@ -12,6 +12,10 @@ module V1
           user = User::GetInfo.new.call(params[:user_id])
           present :user, user, with: V1::Entities::Users
         end
+
+        post do
+
+        end
       end
     end
   end

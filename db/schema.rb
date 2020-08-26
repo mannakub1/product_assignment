@@ -20,12 +20,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_113438) do
     t.string "token"
     t.string "token_type"
     t.string "account_id"
-    t.json "goal"
-    t.json "salary"
-    t.json "provident_fund"
-    t.json "social_security"
-    t.json "saving"
-    t.json "post_retirement"
+    t.json "retirement"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

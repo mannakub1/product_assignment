@@ -1,4 +1,8 @@
 version: '3'
+networks:
+  default:
+    external:
+      name: dev-services_default
 volumes:
   bundle:
   postgresql_data:
@@ -16,7 +20,7 @@ services:
     build: .
     depends_on:
       - db
-    command: sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 50000 -b 0.0.0.0"
+    command: sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0"
     restart: always 
     env_file:
       - .env.local
@@ -24,5 +28,5 @@ services:
       - bundle:/usr/local/bundle
       - ./:/app
     ports: 
-      - 50000:50000
+      - 3009:3000
   
