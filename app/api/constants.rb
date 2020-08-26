@@ -1,9 +1,5 @@
 module Constants
-  HEADER_API_KEY    = 'Sdc-Api-Key'
-  HEADER_AUTH_TOKEN = 'Sdc-Auth-Token'
-  HEADER_ROLE_ID    = 'Sdc-Role-Id'
-  HEADER_DC_ID      = 'Sdc-Dc-Id'
-  HEADER_SUB_BUSINESS_TYPE_ID = 'Sdc-Sub-Business-Type-Id'
+  HEADER_AUTH_TOKEN = 'Auth-Token'
 
   CODE_SUCCESS                 = 'success'               # 200, 201
   CODE_DUPLICATE_ENTRY         = 'duplicate_entry'       # 409

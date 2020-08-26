@@ -2508,3 +2508,60 @@ Started GET "/api/v1/auth/facebook?auth_token=EAALJzZCnzhj4BAGLBPrEJV2SruV5ZBau3
   ↳ app/services/auth/base.rb:21:in `get_user'
   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   ↳ app/services/auth/guard_validation.rb:23:in `validate_encode'
+  [1m[35m (206.6ms)[0m  [1m[35mCREATE DATABASE "savvy-api-rails_development" ENCODING = 'utf8'[0m
+  [1m[35m (203.8ms)[0m  [1m[35mCREATE DATABASE "savvy-api-rails_test" ENCODING = 'utf8'[0m
+  [1m[35m (19.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "savvy-api-rails_development"[0m
+  [1m[35m (19.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "savvy-api-rails_test"[0m
+  [1m[35m (123.5ms)[0m  [1m[35mCREATE DATABASE "savvy-api-rails_development" ENCODING = 'utf8'[0m
+  [1m[35m (144.8ms)[0m  [1m[35mCREATE DATABASE "savvy-api-rails_test" ENCODING = 'utf8'[0m
+  [1m[35m (18.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "savvy-api-rails_development"[0m
+  [1m[35m (20.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "savvy-api-rails_test"[0m
+  [1m[35m (111.3ms)[0m  [1m[35mCREATE DATABASE "savvy-api-rails_development" ENCODING = 'utf8'[0m
+  [1m[35m (141.5ms)[0m  [1m[35mCREATE DATABASE "savvy-api-rails_test" ENCODING = 'utf8'[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8363763324075825855)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200813113438)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "token" character varying, "token_type" character varying, "account_id" character varying, "retirement" json, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200813113438"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-08-26 08:14:41.861454"], ["updated_at", "2020-08-26 08:14:41.861454"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8363763324075825855)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/auth/facebook?auth_token=EAALJzZCnzhj4BAGLBPrEJV2SruV5ZBau36HpZBTJ1KzPXcaZCxdzl0NHMKCz4K8xTzTdMvpagpihK8rWpnZApFDuL9ZBJLDLMnV6ZAx2ShPlZARXb90C0vBtDVpI7IQdgfZBQyAZAMdNp8FbTHjujrsskVUNZBfwnZCo65ezRYfL5oIFbQZCDwyE8u26IosKafOkut8Yi6KT0ppnzWaUJwmxQ7AWIhAJeBEyiebGo7d171ZBawKQZDZD" for 172.22.0.1 at 2020-08-26 09:24:11 +0000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1 AND "users"."token" = $2 AND "users"."token_type" = $3 LIMIT $4[0m  [["account_id", "3386394381382928"], ["token", "EAALJzZCnzhj4BAGLBPrEJV2SruV5ZBau36HpZBTJ1KzPXcaZCxdzl0NHMKCz4K8xTzTdMvpagpihK8rWpnZApFDuL9ZBJLDLMnV6ZAx2ShPlZARXb90C0vBtDVpI7IQdgfZBQyAZAMdNp8FbTHjujrsskVUNZBfwnZCo65ezRYfL5oIFbQZCDwyE8u26IosKafOkut8Yi6KT0ppnzWaUJwmxQ7AWIhAJeBEyiebGo7d171ZBawKQZDZD"], ["token_type", "facebook"], ["LIMIT", 1]]
+  ↳ app/services/auth/base.rb:20:in `get_user'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/auth/base.rb:21:in `get_user'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("token", "token_type", "account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["token", "EAALJzZCnzhj4BAGLBPrEJV2SruV5ZBau36HpZBTJ1KzPXcaZCxdzl0NHMKCz4K8xTzTdMvpagpihK8rWpnZApFDuL9ZBJLDLMnV6ZAx2ShPlZARXb90C0vBtDVpI7IQdgfZBQyAZAMdNp8FbTHjujrsskVUNZBfwnZCo65ezRYfL5oIFbQZCDwyE8u26IosKafOkut8Yi6KT0ppnzWaUJwmxQ7AWIhAJeBEyiebGo7d171ZBawKQZDZD"], ["token_type", "facebook"], ["account_id", "3386394381382928"], ["created_at", "2020-08-26 09:24:13.001910"], ["updated_at", "2020-08-26 09:24:13.001910"]]
+  ↳ app/services/auth/base.rb:21:in `get_user'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/auth/base.rb:21:in `get_user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/application_service.rb:22:in `jwt_encoder'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/api/v1/users" for 172.22.0.1 at 2020-08-26 09:35:20 +0000
+Grape::Exceptions::MethodNotAllowed
+  
+NoMethodError (undefined method `error_method_not_allowed!' for #<#<Class:0x0000560ff418be10>:0x0000560ff418ace0>):
+  
+app/api/api_base.rb:28:in `block in <class:ApiBase>'
+Started POST "/api/v1/users" for 172.22.0.1 at 2020-08-26 09:35:57 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params token"}}
+Started POST "/api/v1/users" for 172.22.0.1 at 2020-08-26 09:36:11 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params token"}}
+Started POST "/api/v1/users" for 172.22.0.1 at 2020-08-26 09:36:35 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params token"}}
+Started POST "/api/v1/users" for 172.22.0.1 at 2020-08-26 09:37:11 +0000
+{"response":{"code":"validate_failed","message":"ไม่มี params token"}}
+Started POST "/api/v1/users" for 172.22.0.1 at 2020-08-26 09:37:37 +0000
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/application_service.rb:38:in `jwt_decoder'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]

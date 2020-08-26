@@ -22,23 +22,4 @@ class Auth::Base < ApplicationService
 
     user
   end
-
-  def jwt_encoder(user)
-    Auth::GuardValidation.new.validate_encode(user)
-
-    payload = {
-      data: { 
-        user_id: user.id
-      }
-    }
-
-    JWT.encode(payload, Settings.jwt.secret)
-  end
-
-  def jwt_decoder(token, data_key = nil)
-    Auth::GuardValidation.new.validate_decode(token)
-
-    decoded_token = JWT.decode(token, Settings.jwt.secret, true)
-    data_key.nil? ? decoded_token : decoded_token[0]['data'][data_key]
-  end
 end

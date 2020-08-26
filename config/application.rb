@@ -25,6 +25,7 @@ module App
     config.load_defaults 6.0
     # Load Grape API
     config.autoload_paths += %W( app/services )
+    config.autoload_paths += %W( test/* )
     # Load lib
     config.autoload_paths += Dir[Rails.root.join('lib')]
     config.autoload_paths += Dir[Rails.root.join('app', '*')]

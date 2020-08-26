@@ -2,20 +2,22 @@ module V1
   class Users < Grape::API
 
     resource :users do
-     
-      get do
-        user = User::GetInfo.new.call
-        present :user, user
+  
+      params do
+        # requires :a, type: Integer
+        requires :retirement_data, type: Hash do
+          requires :goal, type: Hash
+          requires :salary, type: Hash
+          requires :social_security, type: Hash
+          requires :provident_fund, type: Hash
+          requires :saving, type: Hash
+          requires :post_retirment, type: Hash
+        end
       end
-      route_param :user_id do
-        get do
-          user = User::GetInfo.new.call(params[:user_id])
-          present :user, user, with: V1::Entities::Users
-        end
-
-        post do
-
-        end
+      post do
+        puts "== debug params ==="
+        p permitted_params
+        ApplicationService.init(headers)
       end
     end
   end

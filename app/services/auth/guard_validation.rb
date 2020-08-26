@@ -17,14 +17,5 @@ class Auth::GuardValidation < ApplicationService
     error_validate_failed!("ไม่มี params token") if token.nil?
     error_validate_failed!("ไม่มี params token_type") if token_type.nil?
   end
-
-  def validate_encode(user)
-    error_validate_failed!("ไม่มี params user") if user.nil?
-    error_validate_failed!("ไม่มี user id: #{user.id} นี้อยู่ในระบบ") if User.find_by(id: user.id).nil?
-  end
-
-  def validate_decode(token)
-    error_validate_failed!("ไม่มี params token") if token.nil?
-  end
 end
 
