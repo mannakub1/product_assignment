@@ -28,9 +28,11 @@ class AuthTest < ActiveSupport::TestCase
                       post_retirement: { a: 1},
                     })
     params = { auth_token: auth_token }
+    assert_equal(1, User.count)
     
     get "/api/v1/auth/facebook", params
 
+    assert_equal(1, User.count)
     assert_equal("success", response_body[:code])
     assert_equal([:user, :auth_token], response_body[:data].keys())
   end
