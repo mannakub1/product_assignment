@@ -1,5 +1,5 @@
 module V1::Entities
   class Users < Grape::Entity
-   expose :retirement
+   expose :retirement, as: :retirement_data
   end
 end

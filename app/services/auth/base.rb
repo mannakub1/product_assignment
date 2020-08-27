@@ -11,13 +11,14 @@ class Auth::Base < ApplicationService
     http.use_ssl = true
     http.open_timeout = 3 # in seconds
     http.read_timeout = 3 # in seconds
-    http.request(req)
+    http.request(req).body
   end
 
   def get_user(account_id, token, token_type)
     Auth::GuardValidation.new.validate_get_user(account_id, token, token_type)
     
-    user = User.find_or_initialize_by(account_id: account_id, token: token, token_type: token_type)
+    user = User.find_or_initialize_by(account_id: account_id, token_type: token_type)
+    user.attributes = { token: token}
     user.save!
 
     user

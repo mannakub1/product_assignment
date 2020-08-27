@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersTest < ActiveSupport::TestCase
 
-  test "[POST]_user_retirements" do
+  test "[PUT]_user_update_retirements" do
   
     user = create(:user_facebook)
     params = {
@@ -12,15 +12,20 @@ class UsersTest < ActiveSupport::TestCase
         social_security: { a: 1},
         provident_fund: { a: 1},
         saving: { a: 1},
-        post_retirment: { a: 1},
+        post_retirement: { a: 1},
       }
     }
     
-    post "/api/v1/users", params, user_header(user)
+    put "/api/v1/users/retirements", params, user_header(user)
 
-    puts "=== debug ==="
-    p response_body
-    assert_equal(1,2)
+    assert_equal("success", response_body[:code])
+    assert_equal([:goal, 
+                  :salary, 
+                  :social_security, 
+                  :provident_fund, 
+                  :saving, 
+                  :post_retirement
+                ], response_body[:data][:user][:retirement_data].keys())
   end
 
 end

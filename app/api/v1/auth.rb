@@ -8,7 +8,9 @@ module V1
         # requires :access_token, type: String
       end
       get :facebook do
-        present :auth_token, ::Auth::Facebook.new.call(permitted_params[:auth_token])
+        user, auth_token = ::Auth::Facebook.new.call(permitted_params[:auth_token])
+        present :user, user, with: Entities::Users
+        present :auth_token, auth_token 
       end
 
       params do

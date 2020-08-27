@@ -11,12 +11,11 @@ class Auth::Facebook < Auth::Base
 
     # get user
     response   = request(url)
-    p response.body
-    account_id = JSON.parse(response.body)["data"]["user_id"]  
+    account_id = JSON.parse(response)["data"]["user_id"]  
     user       = get_user(account_id, auth_token, "facebook")
 
     # return
-    jwt_encoder(user)
+    [user, jwt_encoder(user)]
   end
 
 end
