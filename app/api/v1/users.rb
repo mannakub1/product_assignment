@@ -15,9 +15,7 @@ module V1
         end
       end
       post do
-        puts "== debug params ==="
-        p permitted_params
-        ApplicationService.init(headers)
+        present :user, User::Retirement.init(headers).call(permitted_params), with: Entities::Users
       end
     end
   end

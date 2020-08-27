@@ -7,18 +7,15 @@ class UsersTest < ActiveSupport::TestCase
     user = create(:user_facebook)
     params = {
       retirement_data: {
-        goal: nil,
-        salary: nil,
-        social_security: nil,
-        provident_fund: nil,
-        saving: nil,
-        post_retirment: nil,
+        goal: { a: 1},
+        salary: { a: 1},
+        social_security: { a: 1},
+        provident_fund: { a: 1},
+        saving: { a: 1},
+        post_retirment: { a: 1},
       }
     }
-
-    # params = { }
-    p params
-    p params.class
+    
     post "/api/v1/users", params, user_header(user)
 
     puts "=== debug ==="
