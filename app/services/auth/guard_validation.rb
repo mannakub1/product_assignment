@@ -35,7 +35,7 @@ class Auth::GuardValidation < ApplicationService
   end
 
   def validate_request_auth_google(response_hash)
-    error_validate_failed!("request profile google error") if response_hash["error"]
+    error_validate_failed!("request auth google error") if response_hash["error"]
   end
 end
 

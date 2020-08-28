@@ -28,7 +28,7 @@ class ApplicationService
   end
 
   def jwt_decoder(token)
-    error_validate_failed!("ไม่มี params token") if token.nil?
+    error_validate_failed!("ไม่มี params token header") if token.nil?
 
     decoded_token = JWT.decode(token, Settings.jwt.secret, true)
     user_id       = decoded_token[0]['data']['user_id']

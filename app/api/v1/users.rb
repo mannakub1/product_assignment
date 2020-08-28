@@ -14,6 +14,8 @@ module V1
         end
       end
       put :retirements do
+        puts "=== debug headers ===="
+        p headers
         present :user, User::Retirement.init(headers).call(permitted_params[:retirement_data]), with: Entities::Users
       end
     end
