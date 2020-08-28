@@ -58,8 +58,8 @@ test_all_job:
   script:
     - cd /app
     - bundle install
-    - rails db:create
-    - rails db:migrate
+    - RAILS_ENV=test rails db:create 
+    - RAILS_ENV=test rails db:migrate
     - rails test
   only:
     - master
