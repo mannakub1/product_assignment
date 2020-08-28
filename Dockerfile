@@ -23,5 +23,5 @@ RUN if [ "$RAILS_ENV" = "development" ] ; then \
 ARG APP_HOME="/app"
 COPY . ${APP_HOME}
 EXPOSE $PORT
-RUN chmod +x /sbin/entrypoint.sh
+RUN chmod +x docker-entrypoint.sh
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
