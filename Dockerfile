@@ -1,7 +1,9 @@
 FROM ruby:2.7.1-alpine3.12
 ENV RAILS_ENV="production"
+ENV PORT=3000
 
 WORKDIR /app
+
 
 RUN apk add --no-cache --update \
   build-base \
