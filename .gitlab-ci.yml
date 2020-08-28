@@ -57,6 +57,7 @@ test_all_job:
     JRUBY_OPTS: "--debug"
   script:
     - cd /app
+    - bundle install
     - rails db:create
     - rails db:migrate
     - rails test

@@ -12,5 +12,16 @@ RUN apk add --no-cache --update \
 # cache bundle install
 COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
-RUN bundle install --deployment 
 
+RUN gem install bundler -v 2.1.4;
+RUN if [ "$RAILS_ENV" = "development" ] ; then \
+  bundle install ; \
+  else \
+  bundle install --without development test ; \
+  fi
+
+ARG APP_HOME="/app"
+COPY . ${APP_HOME}
+EXPOSE $PORT
+RUN chmod +x /sbin/entrypoint.sh
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
