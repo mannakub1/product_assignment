@@ -3,7 +3,8 @@ class Auth::Google < Auth::Base
 
   def call(auth_token)
     # Guard
-    Auth::GuardValidation.new.validate_google(auth_token)
+    guard = Auth::GuardValidation.new
+    guard.validate_google(auth_token)
 
     # perform
     url = "https://oauth2.googleapis.com/tokeninfo?id_token=#{auth_token}"
@@ -11,7 +12,8 @@ class Auth::Google < Auth::Base
     # get user
     response      = request(url)
     response_hash = JSON.parse(response)
-
+    guard.validate_request_auth_google(response_hash)
+    
     account_id    = response_hash["sub"]
     email         = response_hash["email"]
     name          = response_hash["name"]
@@ -19,15 +21,8 @@ class Auth::Google < Auth::Base
     last_name     = response_hash["family_name"]
     
     # save user
-    user            = get_user(account_id, "google")
-    user.attributes = { 
-      token: auth_token,
-      email: email,
-      name: name,
-      first_name: first_name,
-      last_name: last_name
-    }
-    user.save!
+    user = get_or_initialize_user(account_id, "google")
+    user = update_user(user, auth_token, email, name, first_name, last_name)
 
     # return
     [user, jwt_encoder(user)]

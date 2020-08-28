@@ -3,7 +3,8 @@ class Auth::Facebook < Auth::Base
 
   def call(auth_token)
     # Guard
-    Auth::GuardValidation.new.validate_facebook(auth_token)
+    guard = Auth::GuardValidation.new
+    guard.validate_facebook(auth_token)
 
     # perform
     ## Authentication from facebook
@@ -11,13 +12,17 @@ class Auth::Facebook < Auth::Base
     url          = "https://graph.facebook.com/debug_token?input_token=#{auth_token}&access_token=#{access_token}"
 
     # get user
-    response   = request(url)
-    account_id = JSON.parse(response)["data"]["user_id"] 
+    response      = request(url)
+    response_hash = JSON.parse(response)
+    guard.validate_request_auth_facebook(response_hash)
+  
+    account_id    = response_hash["data"]["user_id"] 
 
     ## Get user detail from facebook
     url           = "https://graph.facebook.com/#{account_id}?fields=id,name,email,first_name,last_name&access_token=#{auth_token}"
     response      = request(url)
     response_hash = JSON.parse(response)
+    guard.validate_request_profile_facebook(response_hash)
 
     email         = response_hash["email"]
     name          = response_hash["name"]
@@ -25,16 +30,9 @@ class Auth::Facebook < Auth::Base
     last_name     = response_hash["last_name"]
 
     # save user
-    user            = get_user(account_id, "facebook")
-    user.attributes = { 
-      token:      auth_token,
-      email:      email,
-      name:       name,
-      first_name: first_name,
-      last_name:  last_name
-    }
-    user.save!
-
+    user = get_or_initialize_user(account_id, "facebook")
+    user = update_user(user, auth_token, email, name, first_name, last_name)
+  
     # return
     [user, jwt_encoder(user)]
   end
