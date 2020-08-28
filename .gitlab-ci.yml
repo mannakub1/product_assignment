@@ -57,9 +57,9 @@ test_all_job:
     JRUBY_OPTS: "--debug"
   script:
     - cd /app
-    - bundle exec rake db:create
-    - bundle exec rake db:migrate
-    - bundle exec rails test
+    - rails db:create
+    - rails db:migrate
+    - rails test
   only:
     - master
     - staging
