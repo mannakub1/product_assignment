@@ -48,7 +48,6 @@ deploy_job_staging:
     - ssh deploy@moveplus.dynu.net -p 222 'cd /home/deploy/docker-savvy-backend/; ./deploy-and-restart.sh staging'
   only:
     - staging
-    - merge_requests
 
 test_all_job:
   stage: test
