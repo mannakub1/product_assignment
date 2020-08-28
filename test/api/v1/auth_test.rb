@@ -116,7 +116,7 @@ class AuthTest < ActiveSupport::TestCase
     get "/api/v1/auth/google", params
 
     assert_equal("validate_failed", response_body[:code])
-    assert_equal("request profile google error", response_body[:message])
+    assert_equal("request auth google error", response_body[:message])
   end
 
   def request_auth_facebook
