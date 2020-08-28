@@ -7,11 +7,11 @@ services:
   - postgres:12.3-alpine
 
 variables:
-  DB_HOST=postgres
-  DB_PORT=5432
-  DB_USERNAME=admin
-  DB_PASSWORD=admin
-  FACEBOOK_APP_ACCESS_TOKEN=784845042320958|X0fC6SVCrmpr7No1r1YWhqrHigw
+  DB_HOST: postgres
+  DB_PORT: 5432
+  DB_USERNAME: admin
+  DB_PASSWORD: admin
+  FACEBOOK_APP_ACCESS_TOKEN: 784845042320958|X0fC6SVCrmpr7No1r1YWhqrHigw
 
 stages:
   - build
@@ -46,6 +46,7 @@ deploy_job_staging:
     - ssh deploy@moveplus.dynu.net 'cd /home/deploy/docker-savvy-backend/; ./deploy-and-restart.sh staging'
   only:
     - staging
+    - merge_requests
 
 test_all_job:
   stage: test
@@ -61,4 +62,3 @@ test_all_job:
     - master
     - staging
     - merge_requests
-    
