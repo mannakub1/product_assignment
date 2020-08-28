@@ -40,7 +40,7 @@ deploy_job_staging:
   stage: deploy
   image: legaldrive/savvy-backend:staging
   script:
-    - "which ssh-agent || ( apk add --no-cache --update && apk install openssh)"
+    - "which ssh-agent || ( apk update && apk add openssh)"
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$SSH_PRIVATE_KEY_STAGING")
     - mkdir -p ~/.ssh
