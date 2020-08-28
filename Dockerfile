@@ -17,7 +17,7 @@ RUN gem install bundler -v 2.1.4;
 RUN if [ "$RAILS_ENV" = "development" ] ; then \
   bundle install ; \
   else \
-  bundle install --without development test ; \
+  bundle install --without development ; \
   fi
 
 ARG APP_HOME="/app"
