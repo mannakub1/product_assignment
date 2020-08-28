@@ -13,13 +13,9 @@ class Auth::Base < ApplicationService
     http.request(req).body
   end
 
-  def get_user(account_id, token, token_type)
-    Auth::GuardValidation.new.validate_get_user(account_id, token, token_type)
+  def get_user(account_id, token_type)
+    Auth::GuardValidation.new.validate_get_user(account_id, token_type)
     
-    user = User.find_or_initialize_by(account_id: account_id, token_type: token_type)
-    user.attributes = { token: token}
-    user.save!
-
-    user
+    User.find_or_initialize_by(account_id: account_id, token_type: token_type)
   end
 end

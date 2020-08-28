@@ -12,9 +12,8 @@ class Auth::GuardValidation < ApplicationService
     error_validate_failed!("ไม่มี params auth_token") if auth_token.nil?
   end
 
-  def validate_get_user(account_id, token, token_type)
+  def validate_get_user(account_id, token_type)
     error_validate_failed!("ไม่มี params account_id") if account_id.nil?
-    error_validate_failed!("ไม่มี params token") if token.nil?
     error_validate_failed!("ไม่มี params token_type") if token_type.nil?
   end
 end

@@ -1,0 +1,25 @@
+FROM ruby:2.7.1-alpine3.12
+
+WORKDIR /app
+
+RUN apk add --no-cache --update \
+  build-base \
+  tzdata \
+  postgresql-client \
+  postgresql-dev \
+  bash
+
+# cache bundle install
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
+
+RUN gem install bundler -v 2.1.4;
+RUN if [ "$RAILS_ENV" = "development" ] ; then \
+  bundle install ; \
+  else \
+  bundle install --without development ; \
+  fi
+
+ARG APP_HOME="/app"
+COPY . ${APP_HOME}
+EXPOSE $PORT
