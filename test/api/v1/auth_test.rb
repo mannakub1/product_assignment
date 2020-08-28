@@ -35,6 +35,13 @@ class AuthTest < ActiveSupport::TestCase
     assert_equal(1, User.count)
     assert_equal("success", response_body[:code])
     assert_equal([:user, :auth_token], response_body[:data].keys())
+    assert_equal([:goal, 
+                  :salary, 
+                  :social_security, 
+                  :provident_fund, 
+                  :saving, 
+                  :post_retirement
+                ], response_body[:data][:user][:retirement_data].keys())
   end
 
   def data_facebook

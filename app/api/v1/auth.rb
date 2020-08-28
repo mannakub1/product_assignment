@@ -17,7 +17,9 @@ module V1
         requires :auth_token,   type: String
       end
       get :google do
-        present :auth_token, Auth::Google.new.call(permitted_params[:auth_token])
+        user, auth_token = ::Auth::Google.new.call(permitted_params[:auth_token])
+        present :user, user, with: Entities::Users
+        present :auth_token, auth_token 
       end
       
     end

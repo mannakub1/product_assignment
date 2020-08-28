@@ -7,7 +7,14 @@ class Auth::Google < ApplicationService
 
     # perform
     url = "https://oauth2.googleapis.com/tokeninfo?id_token='#{auth_token}'"
-    Request.new.call(url)
+
+    # get user
+    response   = request(url)
+    account_id = JSON.parse(response)["data"]["user_id"]  
+    user       = get_user(account_id, auth_token, "google")
+
+    # return
+    [user, jwt_encoder(user)]
   end
 
 end

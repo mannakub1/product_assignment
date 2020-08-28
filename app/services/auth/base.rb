@@ -3,7 +3,6 @@ class Auth::Base < ApplicationService
   require 'net/http'
   require 'fileutils'
 
-
   def request(url_path)    
     url  = URI.parse(url_path)
     req  = Net::HTTP::Get.new(url.request_uri)
