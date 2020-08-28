@@ -8,3 +8,9 @@ RUN apk add --no-cache --update \
   postgresql-client \
   postgresql-dev \
   bash
+
+# cache bundle install
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
+RUN bundle install --deployment 
+
