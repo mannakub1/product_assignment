@@ -45,7 +45,7 @@ deploy_job_staging:
     - ssh-add <(echo "$SSH_PRIVATE_KEY_STAGING")
     - mkdir -p ~/.ssh
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    - ssh deploy@moveplus.dynu.net 'cd /home/deploy/docker-savvy-backend/; ./deploy-and-restart.sh staging'
+    - ssh deploy@moveplus.dynu.net -p 222 'cd /home/deploy/docker-savvy-backend/; ./deploy-and-restart.sh staging'
   only:
     - staging
     - merge_requests
