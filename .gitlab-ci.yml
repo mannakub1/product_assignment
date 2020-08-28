@@ -12,6 +12,8 @@ variables:
   DB_USERNAME: admin
   DB_PASSWORD: admin
   FACEBOOK_APP_ACCESS_TOKEN: 784845042320958|X0fC6SVCrmpr7No1r1YWhqrHigw
+  POSTGRES_USER: admin
+  POSTGRES_PASSWORD: admin
 
 stages:
   - build
