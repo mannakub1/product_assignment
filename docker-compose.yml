@@ -7,15 +7,6 @@ volumes:
   bundle:
   postgresql_data:
 services:
-  # db:
-  #   image: postgres:12.3-alpine
-  #   environment:
-  #     - POSTGRES_USER=root
-  #     - POSTGRES_PASSWORD=root
-  #   volumes:
-  #     - postgresql_data:/var/lib/postgresql/data
-  #   ports:
-  #     - 50001:5432
   app:
     build: 
       context: .
@@ -31,4 +22,13 @@ services:
       - ./:/app
     ports: 
       - 3009:3000
+  # db:
+  #   image: postgres:12.3-alpine
+  #   environment:
+  #     - POSTGRES_USER=root
+  #     - POSTGRES_PASSWORD=root
+  #   volumes:
+  #     - postgresql_data:/var/lib/postgresql/data
+  #   ports:
+  #     - 50001:5432
   

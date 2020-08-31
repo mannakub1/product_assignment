@@ -20,10 +20,10 @@ class Auth::Facebook < Auth::Base
     user = update_user(
       user, 
       auth_token,
-      user_detail[:email],
-      user_detail[:name],
-      user_detail[:first_name],
-      user_detail[:last_name]
+      user_detail["email"],
+      user_detail["name"],
+      user_detail["first_name"],
+      user_detail["last_name"]
     )
   
     # return

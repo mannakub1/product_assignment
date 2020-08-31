@@ -21,8 +21,8 @@ class Auth::Google < Auth::Base
       auth_token,
       user_detail["email"],
       user_detail["name"],
-      user_detail["first_name"],
-      user_detail["last_name"]
+      user_detail["given_name"],
+      user_detail["family_name"]
     )
 
     # return
