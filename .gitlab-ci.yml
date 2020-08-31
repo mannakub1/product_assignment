@@ -34,6 +34,7 @@ build_job:
   only:
     - master
     - staging
+    - merge_requests
 
 deploy_job_staging:
   stage: deploy
@@ -62,3 +63,4 @@ test_all_job:
   only:
     - master
     - staging
+    - merge_requests
