@@ -1,31 +1,41 @@
 class Auth::Google < Auth::Base
-  require 'net/http'
+  
+  attr_reader :guard
+
+  def initialize(option={})
+    @guard = Auth::GuardValidation.new
+  end
 
   def call(auth_token)
     # Guard
-    guard = Auth::GuardValidation.new
     guard.validate_google(auth_token)
 
     # perform
-    url = "https://oauth2.googleapis.com/tokeninfo?id_token=#{auth_token}"
-
-    # get user
-    response      = request(url)
-    response_hash = JSON.parse(response)
-    guard.validate_request_auth_google(response_hash)
-    
-    account_id    = response_hash["sub"]
-    email         = response_hash["email"]
-    name          = response_hash["name"]
-    first_name    = response_hash["given_name"]
-    last_name     = response_hash["family_name"]
+    ## Authentication from facebook
+    user_detail = auth_google(auth_token)
     
     # save user
-    user = get_or_initialize_user(account_id, "google")
-    user = update_user(user, auth_token, email, name, first_name, last_name)
+    user = get_or_initialize_user(user_detail["sub"], "google")
+    user = update_user(
+      user,
+      auth_token,
+      user_detail["email"],
+      user_detail["name"],
+      user_detail["first_name"],
+      user_detail["last_name"]
+    )
 
     # return
     [user, jwt_encoder(user)]
+  end
+
+  def auth_google(auth_token)
+    url           = "https://oauth2.googleapis.com/tokeninfo?id_token=#{auth_token}"
+    response      = request(url)
+    response_hash = JSON.parse(response)
+    guard.validate_request_auth_google(response_hash)
+
+    response_hash
   end
 
 end

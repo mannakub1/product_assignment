@@ -6,13 +6,13 @@ class UsersTest < ActiveSupport::TestCase
   
     user = create(:user_facebook)
     params = {
-      retirement_data: {
-        goal: { a: 1},
-        salary: { a: 1},
-        social_security: { a: 1},
-        provident_fund: { a: 1},
-        saving: { a: 1},
-        post_retirement: { a: 1},
+      "retirement_data": {
+        "goal": { "a": 1},
+        "salary": { "a": 1},
+        "social_security": { "a": 1},
+        "provident_fund": { "a": 1},
+        "saving": { "a": 1},
+        "post_retirement": { "a": 1},
       }
     }
     
