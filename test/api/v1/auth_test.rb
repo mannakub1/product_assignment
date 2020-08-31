@@ -54,7 +54,7 @@ class AuthTest < ActiveSupport::TestCase
     assert_equal("validate_failed", response_body[:code])
     assert_equal("request auth facebook error", response_body[:message])
   end
-  
+
   test "[GET]_auth_facebook_error_email_nil" do
   
     Auth::Base.any_instance.stubs(:request).returns(request_auth_facebook, request_profile_facebook_nil_email)
@@ -64,6 +64,17 @@ class AuthTest < ActiveSupport::TestCase
 
     assert_equal("validate_failed", response_body[:code])
     assert_equal("ไม่มี params email", response_body[:message])
+  end
+
+  test "[GET]_auth_facebook_error_email_syntax" do
+  
+    Auth::Base.any_instance.stubs(:request).returns(request_auth_facebook, request_profile_facebook_email_syntax_error)
+    params = { auth_token: auth_token }
+    
+    get "/api/v1/auth/facebook", params
+
+    assert_equal("validate_failed", response_body[:code])
+    assert_equal("syntax email error", response_body[:message])
   end
 
   test "[GET]_auth_facebook_error_profile" do
@@ -130,6 +141,28 @@ class AuthTest < ActiveSupport::TestCase
     assert_equal("request auth google error", response_body[:message])
   end
 
+  test "[GET]_auth_google_error_nil_email" do
+  
+    Auth::Base.any_instance.stubs(:request).returns(request_auth_google_nil_email)
+    params = { auth_token: auth_token }
+    
+    get "/api/v1/auth/google", params
+
+    assert_equal("validate_failed", response_body[:code])
+    assert_equal("ไม่มี params email", response_body[:message])
+  end
+
+  test "[GET]_auth_google_error_syntax_email" do
+  
+    Auth::Base.any_instance.stubs(:request).returns(request_auth_google_syntax_email_error)
+    params = { auth_token: auth_token }
+    
+    get "/api/v1/auth/google", params
+
+    assert_equal("validate_failed", response_body[:code])
+    assert_equal("syntax email error", response_body[:message])
+  end
+
   def request_auth_facebook
     "{\"data\":{\"app_id\":\"784845042320958\",\"type\":\"USER\",\"application\":\"savvy calculator\",\"data_access_expires_at\":1606286581,\"expires_at\":1603689752,\"is_valid\":true,\"issued_at\":1598505752,\"metadata\":{\"auth_type\":\"rerequest\",\"sso\":\"chrome_custom_tab\"},\"scopes\":[\"email\",\"public_profile\"],\"user_id\":\"3386394381382928\"}}"
   end
@@ -138,12 +171,16 @@ class AuthTest < ActiveSupport::TestCase
     "{\"data\":{\"error\":{\"code\":190,\"message\":\"Invalid OAuth access token.\"},\"is_valid\":false,\"scopes\":[]}}"
   end
 
-  def request_profile_facebook
-    "{\"id\":\"3386394381382928\",\"name\":\"Nasatit Teeka\",\"email\":\"i.am.em\\u0040hotmail.co.th\",\"first_name\":\"Nasatit\",\"last_name\":\"Teeka\"}"
-  end
-
   def request_profile_facebook_nil_email
     "{\"id\":\"3386394381382928\",\"name\":\"Nasatit Teeka\",\"first_name\":\"Nasatit\",\"last_name\":\"Teeka\"}"
+  end
+
+  def request_profile_facebook_email_syntax_error
+    "{\"id\":\"3386394381382928\",\"name\":\"Nasatit Teeka\",\"email\":\"i.am.em\",\"first_name\":\"Nasatit\",\"last_name\":\"Teeka\"}"
+  end
+
+  def request_profile_facebook
+    "{\"id\":\"3386394381382928\",\"name\":\"Nasatit Teeka\",\"email\":\"i.am.em\\u0040hotmail.co.th\",\"first_name\":\"Nasatit\",\"last_name\":\"Teeka\"}"
   end
 
   def request_profile_facebook_error
@@ -152,6 +189,14 @@ class AuthTest < ActiveSupport::TestCase
 
   def request_auth_google
     "{\n  \"iss\": \"https://accounts.google.com\",\n  \"azp\": \"52353301948-9sjv97415kcocefjhc8e2hi0ern8b7ap.apps.googleusercontent.com\",\n  \"aud\": \"52353301948-9sjv97415kcocefjhc8e2hi0ern8b7ap.apps.googleusercontent.com\",\n  \"sub\": \"115363107190727590527\",\n  \"email\": \"titsanatk@gmail.com\",\n  \"email_verified\": \"true\",\n  \"at_hash\": \"M5et_UDMszufH9_4S5UblA\",\n  \"nonce\": \"Dq5N858UMTxcrHBgwCN2Lkc8WnrAXRpoJTyr5hKo0Ok\",\n  \"name\": \"\xE0\xB8\x98\xE0\xB8\xB4\xE0\xB8\xA9\xE0\xB8\x93\xE0\xB8\xB0 \xE0\xB8\x97\xE0\xB8\xB5\xE0\xB8\x86\xE0\xB8\xB0\xE0\xB8\x9A\xE0\xB8\xB8\xE0\xB8\x95\xE0\xB8\xA3\",\n  \"picture\": \"https://lh3.googleusercontent.com/a-/AOh14GghscwW3eNV3Og8AqyCBWyUU7EmnpwrdFgm9VEN=s96-c\",\n  \"given_name\": \"\xE0\xB8\x98\xE0\xB8\xB4\xE0\xB8\xA9\xE0\xB8\x93\xE0\xB8\xB0\",\n  \"family_name\": \"\xE0\xB8\x97\xE0\xB8\xB5\xE0\xB8\x86\xE0\xB8\xB0\xE0\xB8\x9A\xE0\xB8\xB8\xE0\xB8\x95\xE0\xB8\xA3\",\n  \"locale\": \"th\",\n  \"iat\": \"1598608363\",\n  \"exp\": \"1598611963\",\n  \"alg\": \"RS256\",\n  \"kid\": \"0a7dc12664590c957ffaebf7b6718297b864ba91\",\n  \"typ\": \"JWT\"\n}\n"
+  end
+
+  def request_auth_google_nil_email
+    "{\n  \"iss\": \"https://accounts.google.com\",\n  \"azp\": \"52353301948-9sjv97415kcocefjhc8e2hi0ern8b7ap.apps.googleusercontent.com\",\n  \"aud\": \"52353301948-9sjv97415kcocefjhc8e2hi0ern8b7ap.apps.googleusercontent.com\",\n  \"sub\": \"115363107190727590527\",\n  \"email_verified\": \"true\",\n  \"at_hash\": \"M5et_UDMszufH9_4S5UblA\",\n  \"nonce\": \"Dq5N858UMTxcrHBgwCN2Lkc8WnrAXRpoJTyr5hKo0Ok\",\n  \"name\": \"\xE0\xB8\x98\xE0\xB8\xB4\xE0\xB8\xA9\xE0\xB8\x93\xE0\xB8\xB0 \xE0\xB8\x97\xE0\xB8\xB5\xE0\xB8\x86\xE0\xB8\xB0\xE0\xB8\x9A\xE0\xB8\xB8\xE0\xB8\x95\xE0\xB8\xA3\",\n  \"picture\": \"https://lh3.googleusercontent.com/a-/AOh14GghscwW3eNV3Og8AqyCBWyUU7EmnpwrdFgm9VEN=s96-c\",\n  \"given_name\": \"\xE0\xB8\x98\xE0\xB8\xB4\xE0\xB8\xA9\xE0\xB8\x93\xE0\xB8\xB0\",\n  \"family_name\": \"\xE0\xB8\x97\xE0\xB8\xB5\xE0\xB8\x86\xE0\xB8\xB0\xE0\xB8\x9A\xE0\xB8\xB8\xE0\xB8\x95\xE0\xB8\xA3\",\n  \"locale\": \"th\",\n  \"iat\": \"1598608363\",\n  \"exp\": \"1598611963\",\n  \"alg\": \"RS256\",\n  \"kid\": \"0a7dc12664590c957ffaebf7b6718297b864ba91\",\n  \"typ\": \"JWT\"\n}\n"
+  end
+
+  def request_auth_google_syntax_email_error
+    "{\n  \"iss\": \"https://accounts.google.com\",\n  \"azp\": \"52353301948-9sjv97415kcocefjhc8e2hi0ern8b7ap.apps.googleusercontent.com\",\n  \"aud\": \"52353301948-9sjv97415kcocefjhc8e2hi0ern8b7ap.apps.googleusercontent.com\",\n  \"sub\": \"115363107190727590527\",\n  \"email\": \"titsanatk\",\n  \"email_verified\": \"true\",\n  \"at_hash\": \"M5et_UDMszufH9_4S5UblA\",\n  \"nonce\": \"Dq5N858UMTxcrHBgwCN2Lkc8WnrAXRpoJTyr5hKo0Ok\",\n  \"name\": \"\xE0\xB8\x98\xE0\xB8\xB4\xE0\xB8\xA9\xE0\xB8\x93\xE0\xB8\xB0 \xE0\xB8\x97\xE0\xB8\xB5\xE0\xB8\x86\xE0\xB8\xB0\xE0\xB8\x9A\xE0\xB8\xB8\xE0\xB8\x95\xE0\xB8\xA3\",\n  \"picture\": \"https://lh3.googleusercontent.com/a-/AOh14GghscwW3eNV3Og8AqyCBWyUU7EmnpwrdFgm9VEN=s96-c\",\n  \"given_name\": \"\xE0\xB8\x98\xE0\xB8\xB4\xE0\xB8\xA9\xE0\xB8\x93\xE0\xB8\xB0\",\n  \"family_name\": \"\xE0\xB8\x97\xE0\xB8\xB5\xE0\xB8\x86\xE0\xB8\xB0\xE0\xB8\x9A\xE0\xB8\xB8\xE0\xB8\x95\xE0\xB8\xA3\",\n  \"locale\": \"th\",\n  \"iat\": \"1598608363\",\n  \"exp\": \"1598611963\",\n  \"alg\": \"RS256\",\n  \"kid\": \"0a7dc12664590c957ffaebf7b6718297b864ba91\",\n  \"typ\": \"JWT\"\n}\n"
   end
 
   def request_auth_google_error

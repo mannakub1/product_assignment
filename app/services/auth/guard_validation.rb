@@ -21,6 +21,7 @@ class Auth::GuardValidation < ApplicationService
     error_validate_failed!("ไม่มี params user")       if user.nil?
     error_validate_failed!("ไม่มี params auth_token") if auth_token.nil?
     error_validate_failed!("ไม่มี params email")      if email.nil?
+    error_validate_failed!("syntax email error")     if validate_syntax_email(email)
     error_validate_failed!("ไม่มี params name")       if name.nil?
     error_validate_failed!("ไม่มี params first_name") if first_name.nil?
     error_validate_failed!("ไม่มี params last_name")  if last_name.nil?
@@ -36,6 +37,11 @@ class Auth::GuardValidation < ApplicationService
 
   def validate_request_auth_google(response_hash)
     error_validate_failed!("request auth google error") if response_hash["error"]
+  end
+
+  def validate_syntax_email(email)
+    pattern = URI::MailTo::EMAIL_REGEXP
+    !pattern.match?(email)
   end
 end
 
