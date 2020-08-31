@@ -54,6 +54,17 @@ class AuthTest < ActiveSupport::TestCase
     assert_equal("validate_failed", response_body[:code])
     assert_equal("request auth facebook error", response_body[:message])
   end
+  
+  test "[GET]_auth_facebook_error_email_nil" do
+  
+    Auth::Base.any_instance.stubs(:request).returns(request_auth_facebook, request_profile_facebook_nil_email)
+    params = { auth_token: auth_token }
+    
+    get "/api/v1/auth/facebook", params
+
+    assert_equal("validate_failed", response_body[:code])
+    assert_equal("ไม่มี params email", response_body[:message])
+  end
 
   test "[GET]_auth_facebook_error_profile" do
   
@@ -129,6 +140,10 @@ class AuthTest < ActiveSupport::TestCase
 
   def request_profile_facebook
     "{\"id\":\"3386394381382928\",\"name\":\"Nasatit Teeka\",\"email\":\"i.am.em\\u0040hotmail.co.th\",\"first_name\":\"Nasatit\",\"last_name\":\"Teeka\"}"
+  end
+
+  def request_profile_facebook_nil_email
+    "{\"id\":\"3386394381382928\",\"name\":\"Nasatit Teeka\",\"first_name\":\"Nasatit\",\"last_name\":\"Teeka\"}"
   end
 
   def request_profile_facebook_error
