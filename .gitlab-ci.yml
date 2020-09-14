@@ -33,6 +33,7 @@ build_job:
     - docker push   legaldrive/savvy-backend:$BUILD_FOR_ENV
   only:
     - master
+    - staging
     - merge_requests
 
 deploy_job_staging:
