@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_081811) do
+ActiveRecord::Schema.define(version: 2020_09_22_064131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_081811) do
     t.string "name"
     t.string "first_name"
     t.string "last_name"
+    t.json "accept_term"
     t.index ["account_id", "token_type"], name: "index_user_unique", unique: true
   end
 

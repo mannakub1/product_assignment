@@ -16,6 +16,13 @@ module V1
       put :retirements do
         present :user, User::Retirement.init(headers).call(permitted_params[:retirement_data]), with: Entities::Users
       end
+
+      params do
+        requires :version, type: Integer
+      end
+      put :terms do
+        present :status, User::AcceptTerm.init(headers).call(permitted_params[:version])
+      end
     end
   end
 end
