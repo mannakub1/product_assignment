@@ -5,3 +5,4 @@ apple:
   team_id: <%= ENV['APPLE_TEAM_ID'] %>
   client_id: <%= ENV['APPLE_CLIENT_ID'] %>
   key_file: <%= "AuthKey_" + ENV['APPLE_KEY_ID'] + ".p8" %>
+  redirect_url: https://api.savvy-asia.com/api/v1/auth/apple
