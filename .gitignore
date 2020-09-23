@@ -20,3 +20,4 @@
 /builds
 /tmp
 .env.local
+*.p8

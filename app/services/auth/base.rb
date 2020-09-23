@@ -13,6 +13,19 @@ class Auth::Base < ApplicationService
     http.request(req).body
   end
 
+  def post_request(url_path, params)    
+    url  = URI.parse(url_path)
+    https = Net::HTTP.new(url.host, url.port);
+    https.use_ssl = true
+    request = Net::HTTP::Post.new(url)
+    request["Content-Type"] = "application/x-www-form-urlencoded"
+    request.body = params
+
+    response = https.request(request)
+
+    response.body
+  end
+
   def get_or_initialize_user(account_id, token_type)
     Auth::GuardValidation.new.validate_get_or_initialize_user(account_id, token_type)
     User.find_or_initialize_by(account_id: account_id, token_type: token_type)

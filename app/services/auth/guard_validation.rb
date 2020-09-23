@@ -8,6 +8,10 @@ class Auth::GuardValidation < ApplicationService
     validate_auth_token(auth_token)
   end
 
+  def validate_apple(auth_token)
+    validate_auth_token(auth_token)
+  end
+
   def validate_auth_token(auth_token)
     error_validate_failed!("ไม่มี params auth_token") if auth_token.nil?
   end
@@ -38,6 +42,11 @@ class Auth::GuardValidation < ApplicationService
   def validate_request_auth_google(response_hash)
     error_validate_failed!("request auth google error") if response_hash["error"]
   end
+
+  def validate_request_auth_apple(response_hash)
+    error_validate_failed!("request auth apple error by #{response_hash["error"]}") if response_hash["error"]
+  end
+
 
   def validate_syntax_email(email)
     pattern = URI::MailTo::EMAIL_REGEXP
