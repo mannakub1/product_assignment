@@ -6,10 +6,17 @@ class Auth::GuardValidation < ApplicationService
 
   def validate_google(auth_token)
     validate_auth_token(auth_token)
+    error_validate_failed!("ยังไม่ได้ใส่ App access token ของ facebook") if ENV['FACEBOOK_APP_ACCESS_TOKEN'].nil?
   end
 
   def validate_apple(auth_token)
     validate_auth_token(auth_token)
+    error_validate_failed!("ยังไม่ได้ใส่ Settings ของ Apple") if Settings.apple.nil?
+    error_validate_failed!("ยังไม่ได้ใส่ client_id ที่ Settings ของ Apple") if Settings.apple.client_id.nil?
+    error_validate_failed!("ยังไม่ได้ใส่ redirect_url ที่ Settings ของ Apple") if Settings.apple.redirect_url.nil?
+    error_validate_failed!("ยังไม่ได้ใส่ team_id ที่ Settings ของ Apple") if Settings.apple.team_id.nil?
+    error_validate_failed!("ยังไม่ได้ใส่ key_id ที่ Settings ของ Apple") if Settings.apple.key_id.nil?
+    error_validate_failed!("ยังไม่ได้ใส่ key_file ที่ Settings ของ Apple") if Settings.apple.key_file.nil?
   end
 
   def validate_auth_token(auth_token)
