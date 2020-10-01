@@ -163,21 +163,21 @@ class AuthTest < ActiveSupport::TestCase
     assert_equal("syntax email error", response_body[:message])
   end
 
-  test "[GET]_auth_apple_error_grant" do
+  # test "[GET]_auth_apple_error_grant" do
   
-    Auth::Base.any_instance.stubs(:post_request).returns(request_auth_apple_error_grant)
-    params = { 
-      auth_token: auth_token,
-      first_name: "nanthipath",
-      last_name:  "pholberdee",
-      email:      "omliler_man@hotmail.com"
-    }
+  #   Auth::Base.any_instance.stubs(:post_request).returns(request_auth_apple_error_grant)
+  #   params = { 
+  #     auth_token: auth_token,
+  #     first_name: "nanthipath",
+  #     last_name:  "pholberdee",
+  #     email:      "omliler_man@hotmail.com"
+  #   }
     
-    get "/api/v1/auth/apple", params
+  #   get "/api/v1/auth/apple", params
 
-    assert_equal("validate_failed", response_body[:code])
-    assert_equal("request auth apple error by invalid_grant", response_body[:message])
-  end
+  #   assert_equal("validate_failed", response_body[:code])
+  #   assert_equal("request auth apple error by invalid_grant", response_body[:message])
+  # end
 
   def request_auth_facebook
     "{\"data\":{\"app_id\":\"784845042320958\",\"type\":\"USER\",\"application\":\"savvy calculator\",\"data_access_expires_at\":1606286581,\"expires_at\":1603689752,\"is_valid\":true,\"issued_at\":1598505752,\"metadata\":{\"auth_type\":\"rerequest\",\"sso\":\"chrome_custom_tab\"},\"scopes\":[\"email\",\"public_profile\"],\"user_id\":\"3386394381382928\"}}"
