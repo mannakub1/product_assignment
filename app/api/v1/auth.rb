@@ -24,9 +24,9 @@ module V1
 
       params do
         requires :auth_token,   type: String
-        requires :first_name,   type: String
-        requires :last_name,    type: String
-        requires :email,        type: String
+        optional :first_name,   type: String
+        optional :last_name,    type: String
+        optional :email,        type: String
       end
       get :apple do
         user, auth_token = ::Auth::Apple.new.call(

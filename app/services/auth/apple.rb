@@ -16,14 +16,19 @@ class Auth::Apple < Auth::Base
     
     # save user
     user = get_or_initialize_user(user_detail["sub"], "apple")
-    user = update_user(
-      user,
-      auth_token,
-      email,
-      first_name + last_name,
-      first_name,
-      last_name
-    )
+
+    can_update_user = first_name.present? && last_name.present? && email.present?
+
+    if can_update_user
+      user = update_user(
+        user,
+        auth_token,
+        email,
+        first_name + last_name,
+        first_name,
+        last_name
+      )
+    end
 
     # return
     [user, jwt_encoder(user)]
