@@ -4,5 +4,5 @@ apple:
   key_id: 298LCGN6TN
   team_id: 29ML45HUWA
   client_id: com.dam.savvyapp
-  key_file:  AuthKey_298LCGN6TN.p8
+  key_file: <%= "AuthKey_298LCGN6TN.p8" %>
   redirect_url: https://api.savvy-asia.com/api/v1/auth/apple
