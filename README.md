@@ -9,6 +9,7 @@ docker-compose up -d
 ```sh
 #Into bash container
 docker-compose run --rm app bash
+
 # create database
 rails db:migrate
 
