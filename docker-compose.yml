@@ -1,34 +1,31 @@
-version: '3'
-networks:
-  default:
-    external:
-      name: dev-services_default
+version: "3"
 volumes:
   bundle:
-  postgresql_data:
+  postgresData:
 services:
   app:
-    build: 
+    build:
       context: .
-      dockerfile: Dockerfile-dev
+      dockerfile: Dockerfile
     # depends_on:
     #   - db
     command: sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0"
-    restart: always 
+    restart: always
     env_file:
       - .env.local
     volumes:
       - bundle:/usr/local/bundle
       - ./:/app
-    ports: 
-      - 3009:3000
-  # db:
-  #   image: postgres:12.3-alpine
-  #   environment:
-  #     - POSTGRES_USER=root
-  #     - POSTGRES_PASSWORD=root
-  #   volumes:
-  #     - postgresql_data:/var/lib/postgresql/data
-  #   ports:
-  #     - 50001:5432
-  
+    ports:
+      - 3008:3000
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      TZ: "Asia/Bangkok"
+    ports:
+      - 5432:5432
+    volumes:
+      - postgresData:/var/lib/postgresql/data

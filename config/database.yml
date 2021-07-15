@@ -8,12 +8,8 @@ default: &default
 
 development:
   <<: *default
-  database: savvy-api-rails_development
+  database: <%= ENV['DB_NAME'] %>
 
 test:
   <<: *default
-  database: savvy-api-rails_test
-
-production:
-  <<: *default
-  database: savvy-api-rails_production
+  database: production_assignment_test

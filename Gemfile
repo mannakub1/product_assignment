@@ -9,7 +9,6 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
-
 # API
 gem 'grape'
 gem 'grape-entity'
@@ -21,6 +20,9 @@ gem 'jwt'
 # Until
 gem 'rails-settings-cached'
 gem "config"
+gem 'kimurai'
+gem "activerecord-import", ">= 0.2.0"
+gem 'kaminari'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'

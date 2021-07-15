@@ -19,5 +19,4 @@
 /config/master.key
 /builds
 /tmp
-.env.local
 *.p8
