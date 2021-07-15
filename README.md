@@ -18,7 +18,7 @@ docker-compose run --rm app bash
   rails db:create
 ```
 
-# Migration Database
+#### Migration Database
 
 ```sh
   rails db:migrate
