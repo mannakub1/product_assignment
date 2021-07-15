@@ -6,22 +6,14 @@ docker-compose up -d
 
 ### Create & Migration Database
 
-##### Into bash container
-
 ```sh
+#Into bash container
 docker-compose run --rm app bash
-```
+# create database
+rails db:migrate
 
-#### Create Database
-
-```sh
-  rails db:create
-```
-
-#### Migration Database
-
-```sh
-  rails db:migrate
+# migration database
+rails db:migrate
 ```
 
 ### Stop all services
