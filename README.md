@@ -1,33 +1,27 @@
-## Development
-
-### Rails new app (generated from railsnew.io)
+### Installing
 
 ```sh
-rails new . --api -d postgresql --skip-spring --skip-listen --skip-action-cable --skip-action-mailbox --skip-sprockets --skip-javascript --skip-turbolinks --skip-webpack-install --skip-yarn
+docker-compose up -d
 ```
 
-### Rails server (with PostgreSQL service)
+### Create & Migration Database
 
-```sh
-docker-compose up app
-```
-
-When Dockerfile-dev has changed.
-
-```sh
-docker-compose up --build app
-```
-
-### Bash
-
-```sh
-docker-compose exec app bash
-```
-
-Without running app container.
+# Into bash container
 
 ```sh
 docker-compose run --rm app bash
+```
+
+# Create Database
+
+```sh
+  rails db:create
+```
+
+# Migration Database
+
+```sh
+  rails db:migrate
 ```
 
 ### Stop all services
@@ -35,4 +29,3 @@ docker-compose run --rm app bash
 ```sh
 docker-compose down
 ```
-
